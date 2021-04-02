@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
+ * 空调
  * @Author 闫金柱
  * @create 2021-4-1 16:12
  */
