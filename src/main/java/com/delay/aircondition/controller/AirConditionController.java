@@ -40,7 +40,9 @@ public class AirConditionController {
             return ExecuteResult.fail(1, "该空调已存在");
         }
         airCondition.setMode(0);
-        airCondition.setTemperature(18);
+        airCondition.setTemperature(20);
+        airCondition.setFengsu(1);
+        airCondition.setFengxiang("中");
         airCondition.setCreateTime(new Date());
         airConditionService.saveAndFlush(airCondition);
         return ExecuteResult.ok();
@@ -119,6 +121,74 @@ public class AirConditionController {
         }
         List<AirCondition> list = airConditionService.findByRoomId(roomId);
         return ExecuteResult.ok(list);
+    }
+
+    /**
+     * 找空调
+     *
+     * @return
+     */
+    @RequestMapping("findByAirId")
+    @ResponseBody
+    public ExecuteResult findByAirId(Integer airId) {
+
+        AirCondition air = airConditionService.findById(airId).orElse(null);
+        return ExecuteResult.ok(air);
+    }
+
+    /**
+     * 操作
+     *
+     * @return
+     */
+    @RequestMapping("op")
+    @ResponseBody
+    public ExecuteResult op(Integer airId,String mode) {
+
+        AirCondition air = airConditionService.findById(airId).orElse(null);
+        switch (mode){
+            case "up":
+                if(air.getTemperature()>=30){
+                    return ExecuteResult.fail(1,"温度已达到最高");
+                }
+                air.setTemperature(air.getTemperature()+1);
+                break;
+            case "down":
+                if(air.getTemperature()<=17){
+                    return ExecuteResult.fail(1,"温度已达到最低");
+                }
+                air.setTemperature(air.getTemperature()-1);
+                break;
+            case "cold":
+                air.setMode(0);
+                break;
+            case "hot":
+                air.setMode(1);
+                break;
+            case "chushi":
+                air.setMode(2);
+                break;
+            case "fengsu":
+                if(air.getFengsu()==1){
+                    air.setFengsu(2);
+                }else if(air.getFengsu()==2){
+                    air.setFengsu(3);
+                }else if(air.getFengsu()==3){
+                    air.setFengsu(1);
+                }
+                break;
+            case "fengxiang":
+                if(air.getFengxiang().equals("左")){
+                    air.setFengxiang("中");
+                }else if(air.getFengxiang().equals("中")){
+                    air.setFengxiang("右");
+                }else if(air.getFengxiang().equals("右")){
+                    air.setFengxiang("左");
+                }
+                break;
+        }
+        airConditionService.saveAndFlush(air);
+        return ExecuteResult.ok();
     }
 
 }

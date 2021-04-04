@@ -119,20 +119,13 @@
         <img src="/images/icon/home_a_icon.png" alt="">
         <p class="blue-1">首页</p>
     </a>
-    <a>
-        <img src="/images/icon/equr_n_icon.png" alt="">
-        <p>设备</p>
-    </a>
-    <a>
-        <img src="/images/icon/mine_n_icon.png" alt="">
-        <p>我的</p>
-    </a>
 </div>
 </body>
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script>
     $(function () {
-        findAllRoom()
+        findAllRoom();
+        initNum();
     })
 
     $('#roomList').on('click','p',function () {
@@ -149,7 +142,7 @@
                 if (res.success) {
                     var html = '';
                     $.each(res.data,function (i,r) {
-                        html+='<div class="block-icon">\n' +
+                        html+='<div class="block-icon" onclick="location.href=\'/page/equipment?airId='+r.id+'\'">\n' +
                                 '            <div class="f-lex f-weight j-s-b">\n' +
                                 '                <p class="f-28 black-1">'+r.name+'</p>\n' +
                                 '                <p class="f-24 gray-90">'+r.room.name+'</p>\n' +
@@ -182,6 +175,18 @@
                     })
                     $('#roomList').html(html);
                     $('#roomList p:first-child').click();
+                }
+            }
+        })
+    }
+
+    function initNum(){
+        $.ajax({
+            url: '/air/findAll',
+            dataType: 'json',
+            success: function (res) {
+                if (res.success) {
+                   $('#airNum').html(res.data.length);
                 }
             }
         })

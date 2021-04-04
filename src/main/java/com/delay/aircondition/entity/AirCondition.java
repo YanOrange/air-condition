@@ -27,6 +27,10 @@ public class AirCondition {
 
     private Integer mode;//模式 0制冷 1制热 2除湿
 
+    private Integer fengsu;//风速 3级 123
+
+    private String fengxiang;// 风向 左中右
+
     @JoinColumn(name = "room_id")//外键字段
     @ManyToOne(fetch = FetchType.EAGER)
     private Room room;

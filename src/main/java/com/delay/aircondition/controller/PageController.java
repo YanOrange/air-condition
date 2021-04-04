@@ -103,6 +103,26 @@ public class PageController extends BaseController {
     public String home(){
         return "client/home";
     }
+
+    /**
+     * 设备首页
+     * @return
+     */
+    @RequestMapping("equipment")
+    public String equipment(Integer airId,Model model){
+        model.addAttribute("airId",airId);
+        return "client/equipment";
+    }
+
+    /**
+     * 模拟器
+     * @return
+     */
+    @RequestMapping("imitate")
+    public String imitate(){
+        return "client/imitate";
+    }
+
     /**
      * 添加空调
      * @return
