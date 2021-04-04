@@ -76,4 +76,51 @@ public class PageController extends BaseController {
         return "admin/admin-list";
     }
 
+    /**
+     * 前往房间列表
+     * @return
+     */
+    @RequestMapping("roomList")
+    public String roomList(){
+        return "room/room-list";
+    }
+
+    /**
+     * 前往空调列表
+     * @return
+     */
+    @RequestMapping("airList")
+    public String airList(){
+        return "air/air-list";
+    }
+
+
+    /**
+     * 客户端首页
+     * @return
+     */
+    @RequestMapping("home")
+    public String home(){
+        return "client/home";
+    }
+    /**
+     * 添加空调
+     * @return
+     */
+    @RequestMapping("addAir")
+    public String addAir(){
+        return "air/air-add";
+    }
+
+    /**
+     * 添加房间
+     * @return
+     */
+    @RequestMapping("addRoom")
+    public String addRoom(){
+        return "room/room-add";
+    }
+
+
+
 }

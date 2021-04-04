@@ -78,32 +78,24 @@
 <div class="left-nav">
     <div id="side-nav">
         <ul id="nav">
-            <#if user.status==0>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="选课模块">&#xe6b8;</i>
-                        <cite>选课模块</cite>
+                        <i class="iconfont left-nav-li" lay-tips="空调模块">&#xe6b8;</i>
+                        <cite>空调模块</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
                         <li>
-                            <a onclick="xadmin.add_tab('个人信息','/page/person')">
+                            <a onclick="xadmin.add_tab('房间管理','/page/roomList')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>个人信息</cite></a>
+                                <cite>房间管理</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('开始选课','/page/pickList')">
+                            <a onclick="xadmin.add_tab('空调管理','/page/airList')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>开始选课</cite></a>
-                        </li>
-                        <li>
-                            <a onclick="xadmin.add_tab('自选科目','/page/userLessonList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>自选科目</cite></a>
+                                <cite>空调管理</cite></a>
                         </li>
                     </ul>
                 </li>
-            </#if>
-            <#if user.status==3>
                 <li>
                     <a href="javascript:;">
                         <i class="iconfont left-nav-li" lay-tips="管理员模块">&#xe726;</i>
@@ -111,38 +103,12 @@
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
                         <li>
-                            <a onclick="xadmin.add_tab('科目管理','/page/lessonList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>科目管理</cite></a>
-                        </li>
-                        <li>
-                            <a onclick="xadmin.add_tab('学生管理','/page/userList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>学生管理</cite></a>
-                        </li>
-                        <li>
-                            <a onclick="xadmin.add_tab('学期管理','/page/semesterList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>学期管理</cite></a>
-                        </li>
-                        <li>
-                            <a onclick="xadmin.add_tab('课程表管理','/page/classList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>课程表管理</cite></a>
-                        </li>
-                        <li>
-                            <a onclick="xadmin.add_tab('定时任务管理','/page/toGetMaster')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>定时任务管理</cite></a>
-                        </li>
-                        <li>
                             <a onclick="xadmin.add_tab('管理员管理','/page/toAdmin')">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>管理员管理</cite></a>
                         </li>
                     </ul>
                 </li>
-            </#if>
         </ul>
     </div>
 </div>
